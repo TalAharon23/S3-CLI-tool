@@ -10,9 +10,9 @@ client = boto3.client('s3')
 
 # ----------Functions----------
 def printHelp():
-    print("add           Adding new object to bucket")
-    print("delete        Deleting an existing object from a bucket")
-    print("list          Listing all objects from a bucket")
+    print("add           Adding new bucket/object to bucket")
+    print("delete        Deleting an existing bucket/object")
+    print("list          Listing all buckets/objects")
     print("exit          Exit the CLI")
 
 
@@ -97,11 +97,9 @@ def addObject(i_curr_bucket):
     new_object_name = os.path.basename(new_object_path)  # extracting the file name with his extension
     # (e.g: Screenshot (1).png)
 
-    try:  # אפשרות לבדוק אם האוביקט כבר נמצא
+    try:
         result = s3.Bucket(i_curr_bucket.name).upload_file(new_object_path, new_object_name)
         print(f"{new_object_name} has been successfully added to {i_curr_bucket.name} bucket!")
-    # except ClientError as e:
-    #     raise Exception("boto3 client error in uploading new file: " + e.__str__())
     except Exception as e:
         raise Exception(e.__str__())
 
