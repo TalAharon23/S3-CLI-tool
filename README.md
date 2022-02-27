@@ -6,7 +6,7 @@ It made in order to enable execution of quick commands without having to go to t
 
 ## What the CLI contain?
 •	Three S3 operations on objects and buckets: add, list and delete.
-  In addition: Help menu (--help command). Exit option (exit command).
+  In addition: Help menu (`--help` command). Exit option (`exit` command).
      
 •	Checking if bucket or object was found in S3 directory and notify user if not.
 
@@ -29,10 +29,10 @@ Step 2: follow those marks:
 
 •	Install boto3 if does not installed on your work environment:
 - Open the Terminal and run: 
-  - pip install boto3
+   `pip install boto3`
 
 •	Configure your AWS account by using the step 1 credentials:
 - Open the Terminal and run: 
-  - aws configure
+  `aws configure`
 
 • Step 3:  Use the CLI as your wish.
