@@ -1,10 +1,10 @@
 # S3-CLI-tool
 
-# Introduction:
+## Introduction:
 This project is a CLI tool for S3 operations 
 It made in order to enable execution of quick commands without having to go to the AWS website and designed for an accessible replacement for other CLIs.
 
-# What the CLI contain?
+## What the CLI contain?
 •	Three S3 operations on objects and buckets: add, list and delete.
   In addition: Help menu (--help command). Exit option (exit command).
      
@@ -16,7 +16,7 @@ It made in order to enable execution of quick commands without having to go to t
 -	Changing the left slashes into right slashes at the add command (boto 3 requirement).
 -	Delete spaces in the command input.
 
-# Running steps:
+## Running steps:
 Step 1: Get your aws-s3 bucket credentials.
 
 Here's what you'll need:
