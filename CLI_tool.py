@@ -1,7 +1,7 @@
-import os
+import os  # using for manipulating the path address.
 
-import boto3
-from botocore.exceptions import ClientError
+import boto3  # AWS SDK - to create, configure, and manage AWS services such as S3.
+from botocore.exceptions import ClientError  # using for handling exceptions in boto3
 
 # Boto3 needs to know which services will be used
 s3 = boto3.resource('s3')
@@ -17,6 +17,7 @@ def printHelp():
 
 
 def getTypeInput():
+    # Handling user input for the command type (bucket or object)
     print("Would you like to run the command on bucket or object?")
     print(">>>", end="")
     type_input = input()
@@ -80,8 +81,6 @@ def isBucketInS3(i_bucket_name):
 
 # ----------Objects Operations Functions----------
 def isObjectInBucket(i_object_key, i_bucket):
-    # try:
-    # curr_object = s3.Object(bucket.name, object_name).load()
     for curr_object in i_bucket.objects.all():
         if i_object_key == curr_object.key:
             return True
@@ -113,7 +112,7 @@ def listObjects(i_curr_bucket):
 def deleteObject(i_curr_bucket):
     flag = True
     while flag:
-        print("Enter the object key(path) inside the bucket:")
+        print("Enter the object key(path) which inside the bucket:")
         print(">>>", end="")
         object_name = input()
 
