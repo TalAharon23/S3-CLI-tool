@@ -20,19 +20,16 @@ It made in order to enable execution of quick commands without having to go to t
 Step 1: Get your aws-s3 bucket credentials.
 
 Here's what you'll need:
-
-•	Access Key
-•	Secret key
-•	Endpoint URL
+-	Access Key
+-	Secret key
+-	Endpoint URL
 
 Step 2: follow those marks:
 
-•	Install boto3 if does not installed on your work environment:
-- Open the Terminal and run: 
-   `pip install boto3`
+1) Install boto3 if does not installed on your work environment:
+  * Open the Terminal and run:  `pip install boto3`
 
-•	Configure your AWS account by using the step 1 credentials:
-- Open the Terminal and run: 
-  `aws configure`
+2) Configure your AWS account by using the step 1 credentials:
+  * Open the Terminal and run: `aws configure`
 
-• Step 3:  Use the CLI as your wish.
+Step 3:  Use the CLI as your wish.
