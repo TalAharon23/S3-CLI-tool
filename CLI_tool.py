@@ -133,38 +133,43 @@ def deleteObject(i_curr_bucket):
             print("Object file does not found! try again...\n")
 
 
-# ----------"Main"----------
-print("\nWelcome to Tal's S3 CLI \nFor seeing all S3 buckets operations commands type --help \n")
-s3_operations = {'add', 'list', 'delete'}
+# ----------Main----------
+def main():
+    print("\nWelcome to Tal's S3 CLI \nFor seeing all S3 buckets operations commands type --help \n")
+    s3_operations = ('add', 'list', 'delete')
 
-runFlag = True
-while runFlag:  # CLI running till command 'exit' typed.
-    print(">>>", end="")
-    user_command_input = input()
-    user_command_input = user_command_input.strip().lower()  # strip to ignoring white spaces at the start/end of the input string.
+    runFlag = True
+    while runFlag:  # CLI running till command 'exit' typed.
+        print(">>>", end="")
+        user_command_input = input()
+        user_command_input = user_command_input.strip().lower()  # strip to ignoring white spaces at the start/end of the input string.
 
-    if user_command_input == "":
-        continue
-    if user_command_input == '--help':
-        printHelp()
-    elif user_command_input == 'exit':
-        runFlag = False
-    elif user_command_input in s3_operations:
-        user_type_input = getTypeInput()
-        if user_type_input == 'object':
-            currBucket = s3.Bucket(getBucketName())  # e.g bucket_name = "mybucket-tal-test2323423422"
-        try:
-            if user_command_input == 'add':
-                addBucket() if user_type_input == 'bucket' else addObject(currBucket)
+        if user_command_input == "":
+            continue
+        if user_command_input == '--help':
+            printHelp()
+        elif user_command_input == 'exit':
+            runFlag = False
+        elif user_command_input in s3_operations:
+            user_type_input = getTypeInput()
+            if user_type_input == 'object':
+                currBucket = s3.Bucket(getBucketName())  # e.g bucket_name = "mybucket-tal-test2323423422"
+            try:
+                if user_command_input == s3_operations[0]:
+                    addBucket() if user_type_input == 'bucket' else addObject(currBucket)
 
-            elif user_command_input == 'list':
-                listAllBuckets() if user_type_input == 'bucket' else listObjects(currBucket)
+                elif user_command_input == s3_operations[1]:
+                    listAllBuckets() if user_type_input == 'bucket' else listObjects(currBucket)
 
-            elif user_command_input == 'delete':
-                deleteBucket() if user_type_input == 'bucket' else deleteObject(currBucket)
+                elif user_command_input == s3_operations[2]:
+                    deleteBucket() if user_type_input == 'bucket' else deleteObject(currBucket)
 
-        except Exception as e:
-            pass  # avoid from close the program.
-            print("Command Failed with the exception: " + e.__str__())
-    else:
-        print("Command does not exist!\n")
+            except Exception as e:
+                pass  # avoid from close the program.
+                print("Command Failed with the exception: " + e.__str__())
+        else:
+            print("Command does not exist!\n")
+
+
+if __name__ == "__main__":
+    main()
