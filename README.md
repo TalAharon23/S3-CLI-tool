@@ -1,4 +1,5 @@
 # S3-CLI-tool
+<img alt="C#" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img alt="C#" src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white">
 
 ## Introduction:
 This project is a CLI tool for S3 operations 
